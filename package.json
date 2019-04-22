@@ -1,0 +1,29 @@
+{
+  "name": "example-node-server-boilerplate",
+  "description": "The node backend rest api",
+  "version": "1.0.0",
+  "private": false,
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ErlichChen/example-node-server-boilerplate.git"
+  },
+  "license": "NLPL",
+  "scripts": {
+    "build": "",
+    "start": "gulp",
+    "test": "npm run coverage",
+    "mocha": "mocha ./src/**/test*.js ./test/**/test*.js",
+    "lint": "eslint src",
+    "clean": "gulp clean"
+  },
+  "dependencies": {
+    "koa": "2.7.0"
+  },
+  "devDependencies": {
+    "gulp": "4.0.1"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
