@@ -21,7 +21,10 @@
     "koa": "2.7.0"
   },
   "devDependencies": {
-    "gulp": "4.0.1"
+    "gulp": "4.0.1",
+    "gulp-babel": "8.0.0",
+    "@babel/core": "7.4.3",
+    "del": "4.1.0"
   },
   "engines": {
     "node": ">=8"
