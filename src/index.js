@@ -2,7 +2,7 @@ import App from './app';
 
 console.log("start to run node api server");
 let app = App();
-app.displayInfoEnv();
+app.env();
 
 app.start()
 .catch(err => {

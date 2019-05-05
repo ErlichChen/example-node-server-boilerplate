@@ -1,29 +1,33 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports["default"] = _default;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
 var _koa = _interopRequireDefault(require("koa"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-var _default = koaSerever = function koaSerever(app) {
+function _default(app) {
   var koaApp = new _koa["default"]();
   return {
+    koa: koaApp,
     start: function () {
-      var _start = _asyncToGenerator(
+      var _start = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+      _regenerator["default"].mark(function _callee() {
+        var port;
+        return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                // let port = process.env.PORT || configHttp.port;
+                port = 3001;
                 return _context.abrupt("return", new Promise(function (resolve, reject) {
                   koaApp.listen(port, function () {
                     console.log("koa server started");
@@ -31,7 +35,7 @@ var _default = koaSerever = function koaSerever(app) {
                   });
                 }));
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -46,16 +50,30 @@ var _default = koaSerever = function koaSerever(app) {
       return start;
     }(),
     stop: function () {
-      var _stop = _asyncToGenerator(
+      var _stop = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      _regenerator["default"].mark(function _callee2() {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                return _context2.abrupt("return", new Promise(function (resolve, reject) {}));
+                if (httpHandle) {
+                  _context2.next = 3;
+                  break;
+                }
 
-              case 1:
+                console.log("koa server is already stopped");
+                return _context2.abrupt("return");
+
+              case 3:
+                return _context2.abrupt("return", new Promise(function (resolve) {
+                  httpHandle.close(function () {
+                    console.log("koa server is stopped");
+                    resolve();
+                  });
+                }));
+
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -70,6 +88,4 @@ var _default = koaSerever = function koaSerever(app) {
       return stop;
     }()
   };
-};
-
-exports["default"] = _default;
+}

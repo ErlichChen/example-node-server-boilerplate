@@ -17,7 +17,8 @@ function clean() {
 function build(cb) {
   return src(paths.src)
     .pipe(babel({
-      presets: ['@babel/env']
+      presets: ['@babel/preset-env'],
+      plugins: ['@babel/transform-runtime']
     }))
     .pipe(dest(paths.build));
 }
@@ -27,14 +28,14 @@ function watch(cb) {
   console.log('watch');
 }
 
-function run(cb) {
+function run() {
   return pm2.connect(true, function () {
     var pm2Config = require('./pm2.json');
     pm2.start(pm2Config, function () {
         console.log('pm2 started');
         pm2.streamLogs('all', 0);
     });
-});
+  });
 }
 
 exports.default = series(clean, build, watch, run);
