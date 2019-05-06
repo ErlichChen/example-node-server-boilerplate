@@ -16,7 +16,7 @@ var _koaServer = _interopRequireDefault(require("./server/koaServer"));
 function App() {
   var app = {
     env: function env() {
-      console.log('Port: ' + process.env.PORT);
+      console.log('port: ' + process.env.PORT);
     },
     start: function () {
       var _start = (0, _asyncToGenerator2["default"])(

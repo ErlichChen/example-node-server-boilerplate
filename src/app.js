@@ -4,7 +4,7 @@ export default function App() {
 
   const app = {
     env() {
-      console.log('Port: ' + process.env.PORT);
+      console.log('port: ' + process.env.PORT);
     },
 
     async start() {
