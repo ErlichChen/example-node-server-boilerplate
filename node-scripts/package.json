@@ -1,0 +1,26 @@
+{
+  "name": "node-scripts",
+  "description": "The node server scripts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ErlichChen/example-node-server-boilerplate.git"
+  },
+  "bin": {
+    "ctl": ""
+  },
+  "scripts": {
+
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
+

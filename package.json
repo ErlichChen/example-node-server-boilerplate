@@ -11,7 +11,8 @@
   "license": "NLPL",
   "scripts": {
     "build": "",
-    "start": "gulp",
+    "start": "ctl start",
+    "stop": "ctl stop",
     "test": "npm run coverage",
     "mocha": "mocha ./src/**/test*.js ./test/**/test*.js",
     "lint": "eslint src",
